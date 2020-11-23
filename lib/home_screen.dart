@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_test/item_details_screen.dart';
+import 'package:flutter_animation_test/navigator_provider.dart';
 import 'package:flutter_animation_test/screen_title.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -47,15 +49,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   key: _listKey,
                   initialItemCount: items.length,
                   shrinkWrap: true,
-                  itemBuilder: (_, index, animation) {
+                  itemBuilder: (context, index, animation) {
                     return SlideTransition(
                       position: animation.drive(tween),
                       child: ListTile(
-                        onTap: () =>
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ItemDetailsScreen(
-                                      item: items[index],
-                                    ))),
+                        onTap: () => context.read(navProv).onHandelPage(
+                            ItemDetailsScreen(item: items[index])),
                         title: Text(items[index].title),
                         leading: Hero(
                             tag: items[index].id,

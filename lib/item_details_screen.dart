@@ -4,7 +4,7 @@ import 'package:flutter_animation_test/home_screen.dart';
 class ItemDetailsScreen extends StatefulWidget {
   final Item item;
 
-  ItemDetailsScreen({this.item});
+  ItemDetailsScreen({@required this.item});
 
   @override
   _ItemDetailsScreenState createState() => _ItemDetailsScreenState();
@@ -65,6 +65,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: Center(
           child: Column(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_test/item_details_screen.dart';
 import 'package:flutter_animation_test/navigator_provider.dart';
+import 'package:flutter_animation_test/riverpod_increment_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_animation_test/riverpod_home_screen.dart';
 
 import 'home_screen.dart';
 
@@ -13,7 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Consumer(builder: (context, watch, child) {
+      home:
+          /*Consumer(builder: (context, watch, child) {
         print(watch(navProv).pages.length);
         return WillPopScope(
           onWillPop: () async {
@@ -27,7 +30,8 @@ class MyApp extends StatelessWidget {
             },
           ),
         );
-      }),
+      })*/
+          RiverpodIncrementScreen(),
     );
   }
 
